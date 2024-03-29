@@ -1,8 +1,12 @@
+import Admin from "./pages/admin";
+
 function App() {
   return (
     <>
       <div>
-        <h1 className=" text-center text-6xl font-serif">Hello</h1>
+        <h1 className="">
+          <Admin />
+        </h1>
       </div>
     </>
   );

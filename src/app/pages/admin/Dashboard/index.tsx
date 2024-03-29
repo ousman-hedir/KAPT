@@ -1,5 +1,9 @@
-function index() {
-  return <div>index</div>;
+function AdminDashboard() {
+  return (
+    <div className="w-full flex text-center">
+      Dashboard
+    </div>
+  );
 }
 
-export default index;
+export default AdminDashboard;
