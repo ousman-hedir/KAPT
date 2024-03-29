@@ -3,15 +3,22 @@ import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 import { FaAlignLeft } from "react-icons/fa";
 import { TfiClose } from "react-icons/tfi";
 import { INavBarProps } from "./types";
+import colors from "../../utils/colors";
 
-function NavBar({ items }: { items: INavBarProps[] }) {
+function NavBar({
+  items,
+  onMinimizeToggle,
+}: {
+  items: INavBarProps[];
+  onMinimizeToggle: (minimized: boolean) => void;
+}) {
   const [minimized, setMinimized] = useState(false);
   const [mobileView, setMobileView] = useState(false);
   const [openNav, setOpenNav] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 1050) {
+      if (window.innerWidth <= 1024) {
         setMobileView(true);
       } else {
         setMobileView(false);
@@ -27,7 +34,9 @@ function NavBar({ items }: { items: INavBarProps[] }) {
   }, []);
 
   const toggleMinimize = () => {
-    setMinimized(!minimized);
+    const newMinimized = !minimized;
+    setMinimized(newMinimized);
+    onMinimizeToggle(newMinimized);
   };
 
   const toggleMobileView = () => {
@@ -37,12 +46,16 @@ function NavBar({ items }: { items: INavBarProps[] }) {
 
   return (
     <div
-      className={`min-w-[8rem] ${
-        minimized ? "w-[10%]" : "w-[25%]"
-      } h-screen flex flex-col transition-all duration-500 ease-in`}
+      className={`min-w-[8rem] fixed left-0 z-20 ${
+        minimized ? "w-[10%]" : "w-[20%]"
+      } flex flex-col transition-all duration-500 ease-in
+      ${mobileView ? "h-16" : "h-screen"}
+      `}
     >
       {!mobileView && (
-        <div className="hover:bg-[#E5F3EF] cursor-pointer py-3 flex items-center justify-center">
+        <div
+          className={`hover:bg-${colors.secondary} cursor-pointer py-3 flex items-center justify-center`}
+        >
           <h1 className="text-4xl font-bold text-center font-serif tracking-widest">
             APT
           </h1>
@@ -50,7 +63,9 @@ function NavBar({ items }: { items: INavBarProps[] }) {
       )}
 
       {mobileView && (
-        <div className="hover:bg-[#E5F3EF] cursor-pointer py-3 flex items-center justify-center gap-3">
+        <div
+          className={`hover:bg-${colors.secondary} cursor-pointer py-3 flex items-center justify-center gap-3`}
+        >
           <h1 className="text-2xl font-bold text-center font-serif tracking-widest">
             APT
           </h1>
@@ -59,13 +74,13 @@ function NavBar({ items }: { items: INavBarProps[] }) {
               <TfiClose
                 size={24}
                 onClick={toggleMobileView}
-                className="p-1 rounded bg-[#E5F3EF]"
+                className={`p-1 rounded bg-${colors.secondary}`}
               />
             ) : (
               <FaAlignLeft
                 size={24}
                 onClick={toggleMobileView}
-                className="p-1 rounded bg-[#E5F3EF]"
+                className={`p-1 rounded bg-${colors.secondary}`}
               />
             )}
           </div>
@@ -73,13 +88,17 @@ function NavBar({ items }: { items: INavBarProps[] }) {
       )}
 
       {mobileView && openNav && (
-        <div className="flex flex-col gap-5 p-5 mt-2 rounded-r-3xl w-[20rem] h-[60%] shadow-xl">
+        <div
+          className={`flex flex-col gap-5 p-5 mt-2 rounded-r-3xl w-[20rem] bg-${colors.primary} transition-all duration-500 ease-in`}
+        >
           {items.map((item, index) => (
             <div
               key={index}
               className={`flex ${
                 minimized ? "justify-center" : "justify-start"
-              } gap-5 p-3 font-bold rounded-md hover:text-[#00875f] hover:bg-[#E5F3EF] cursor-pointer`}
+              } gap-5 p-3 font-bold rounded-md hover:text-${
+                colors.primary
+              } hover:bg-${colors.secondary} cursor-pointer`}
             >
               {minimized ? (
                 item.icon
@@ -103,8 +122,8 @@ function NavBar({ items }: { items: INavBarProps[] }) {
                   key={index}
                   className={`flex ${
                     minimized
-                      ? "justify-center text-[#00875f] bg-[#E5F3EF] hover:bg-[#00875F] hover:text-white"
-                      : "justify-start hover:text-[#00875f] hover:bg-[#E5F3EF] "
+                      ? `justify-center text-${colors.primary} bg-${colors.secondary} hover:bg-${colors.primary} hover:text-white`
+                      : `justify-start hover:text-${colors.primary} hover:bg-${colors.secondary}`
                   } gap-5 p-3 font-bold rounded-md cursor-pointer`}
                 >
                   {minimized ? (
