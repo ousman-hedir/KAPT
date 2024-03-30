@@ -3,6 +3,7 @@ import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 import { FaAlignLeft } from "react-icons/fa";
 import { TfiClose } from "react-icons/tfi";
 import { INavBarProps } from "./types";
+import { Link } from "react-router-dom";
 
 function NavBar({
   items,
@@ -119,7 +120,7 @@ function NavBar({
             }`}
           >
             {items.map((item, index) => (
-              <a href={item.link}>
+              <Link to={item.link}>
                 <div
                   key={index}
                   className={`flex ${
@@ -137,7 +138,7 @@ function NavBar({
                     </>
                   )}
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
 

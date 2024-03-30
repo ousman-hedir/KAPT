@@ -16,6 +16,7 @@ function Header() {
     <div
       className={`bg-background fixed top-0 z-10 flex justify-end gap-4 sm:gap-10 xl:gap-16 h-16 w-full px-4 sm:px-14 items-center`}
     >
+      {/* Language Switch */}
       <div className="relative h-8 flex items-center justify-center cursor-pointer">
         <select className="border outline-none px-3 py-1 rounded cursor-pointer">
           <option value="Eng">ENG</option>
@@ -24,6 +25,7 @@ function Header() {
         </select>
       </div>
 
+      {/* Theme Switch */}
       <div
         className={`flex justify-start items-center gap-4 hover:bg-secondary py-1 px-3 rounded cursor-pointer`}
         onClick={toggleDarkMode}
@@ -31,10 +33,12 @@ function Header() {
         {darkMode ? <CiLight size={24} /> : <MdDarkMode size={24} />}
       </div>
 
+      {/* Notification Icon */}
       <div className="cursor-pointer">
         <FiBell size={24} />
       </div>
 
+      {/* Profile Icon */}
       <div className={`cursor-pointer p-2 rounded hover:bg-secondary`}>
         <FiUser
           size={24}
