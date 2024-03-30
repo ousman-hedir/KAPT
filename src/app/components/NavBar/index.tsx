@@ -3,7 +3,6 @@ import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 import { FaAlignLeft } from "react-icons/fa";
 import { TfiClose } from "react-icons/tfi";
 import { INavBarProps } from "./types";
-import colors from "../../utils/colors";
 
 function NavBar({
   items,
@@ -54,7 +53,7 @@ function NavBar({
     >
       {!mobileView && (
         <div
-          className={`hover:bg-${colors.secondary} cursor-pointer py-3 flex items-center justify-center`}
+          className={`hover:bg-secondary cursor-pointer py-3 flex items-center justify-center`}
         >
           <h1 className="text-4xl font-bold text-center font-serif tracking-widest">
             APT
@@ -64,7 +63,7 @@ function NavBar({
 
       {mobileView && (
         <div
-          className={`hover:bg-${colors.secondary} cursor-pointer py-3 flex items-center justify-center gap-3`}
+          className={`hover:bg-secondary cursor-pointer py-3 flex items-center justify-center gap-3`}
         >
           <h1 className="text-2xl font-bold text-center font-serif tracking-widest">
             APT
@@ -74,13 +73,13 @@ function NavBar({
               <TfiClose
                 size={24}
                 onClick={toggleMobileView}
-                className={`p-1 rounded bg-${colors.secondary}`}
+                className={`p-1 rounded bg-secondary`}
               />
             ) : (
               <FaAlignLeft
                 size={24}
                 onClick={toggleMobileView}
-                className={`p-1 rounded bg-${colors.secondary}`}
+                className={`p-1 rounded bg-secondary`}
               />
             )}
           </div>
@@ -89,16 +88,15 @@ function NavBar({
 
       {mobileView && openNav && (
         <div
-          className={`flex flex-col gap-5 p-5 mt-2 rounded-r-3xl w-[20rem] bg-${colors.primary} transition-all duration-500 ease-in`}
+          className={`flex flex-col gap-5 p-5 mt-2 rounded-r-3xl w-[15rem] bg-primary transition-all duration-500 ease-in`}
         >
           {items.map((item, index) => (
             <div
               key={index}
               className={`flex ${
                 minimized ? "justify-center" : "justify-start"
-              } gap-5 p-3 font-bold rounded-md hover:text-${
-                colors.primary
-              } hover:bg-${colors.secondary} cursor-pointer`}
+              } gap-5 p-3 font-bold rounded-md hover:text-primary
+               hover:bg-secondary cursor-pointer`}
             >
               {minimized ? (
                 item.icon
@@ -115,15 +113,19 @@ function NavBar({
 
       {!mobileView && (
         <div className="h-screen">
-          <div className="flex flex-col gap-5 h-[80vh] p-5">
+          <div
+            className={`flex flex-col gap-5 h-[80vh] ${
+              minimized ? "p-3" : "p-5"
+            }`}
+          >
             {items.map((item, index) => (
               <a href={item.link}>
                 <div
                   key={index}
                   className={`flex ${
                     minimized
-                      ? `justify-center text-${colors.primary} bg-${colors.secondary} hover:bg-${colors.primary} hover:text-white`
-                      : `justify-start hover:text-${colors.primary} hover:bg-${colors.secondary}`
+                      ? `justify-center text-primary bg-secondary hover:bg-primary hover:text-white`
+                      : `justify-start hover:text-primary hover:bg-secondary`
                   } gap-5 p-3 font-bold rounded-md cursor-pointer`}
                 >
                   {minimized ? (

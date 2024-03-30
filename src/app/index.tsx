@@ -1,14 +1,15 @@
+import { Routes, Route } from "react-router-dom";
 import Admin from "./pages/admin";
+import { Header } from "./components";
 
 function App() {
   return (
-    <>
-      <div>
-        <h1 className="">
-          <Admin />
-        </h1>
-      </div>
-    </>
+    <div>
+      <Header />
+      <Routes>
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </div>
   );
 }
 
