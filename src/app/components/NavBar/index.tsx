@@ -46,7 +46,7 @@ function NavBar({
 
   return (
     <div
-      className={`min-w-[8rem] fixed left-0 z-20 ${
+      className={`min-w-[8rem] fixed left-0 z-20 text-[#00875f] bg-nav ${
         minimized ? "w-[10%]" : "w-[20%]"
       } flex flex-col transition-all duration-500 ease-in
       ${mobileView ? "h-16" : "h-screen"}
@@ -54,7 +54,7 @@ function NavBar({
     >
       {!mobileView && (
         <div
-          className={`hover:bg-secondary cursor-pointer py-3 flex items-center justify-center`}
+          className={`hover:bg-[#021610] cursor-pointer py-3 flex items-center justify-center`}
         >
           <h1 className="text-4xl font-bold text-center font-serif tracking-widest">
             APT
@@ -89,7 +89,7 @@ function NavBar({
 
       {mobileView && openNav && (
         <div
-          className={`flex flex-col gap-5 p-5 mt-2 rounded-r-3xl w-[15rem] bg-primary transition-all duration-500 ease-in`}
+          className={`flex flex-col gap-5 p-5 mt-2 rounded-r-3xl w-[15rem] bg-[#04241a] transition-all duration-500 ease-in`}
         >
           {items.map((item, index) => (
             <div

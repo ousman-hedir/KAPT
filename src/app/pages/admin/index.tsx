@@ -3,8 +3,9 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import AdminNavigation from "./Navigation";
 import AdminDashboard from "./Dashboard";
 import Users from "./users";
+import { AdminProps } from "./types";
 
-export default function Admin() {
+export default function Admin({ darkMode }: AdminProps) {
   const [minimized, setMinimized] = useState(false);
 
   const handleMinimizeToggle = (
@@ -16,7 +17,7 @@ export default function Admin() {
   return (
     <div className="flex">
       <AdminNavigation onMinimizeToggle={handleMinimizeToggle} />
-      <div>
+      <div className={` ${darkMode ? "text-white" : "text-black"}`}>
         <Routes>
           <Route path="/" element={<Navigate to="dashboard" />} />
           <Route

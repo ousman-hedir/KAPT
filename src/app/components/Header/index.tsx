@@ -3,18 +3,14 @@ import { FiBell, FiUser } from "react-icons/fi";
 import { IoLogOutOutline } from "react-icons/io5";
 import { CiLight } from "react-icons/ci";
 import { MdDarkMode } from "react-icons/md";
+import { HeaderProps } from "./types";
 
-function Header() {
+function Header({ toggleDarkMode, darkMode }: HeaderProps) {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
 
   return (
     <div
-      className={`bg-background fixed top-0 z-10 flex justify-end gap-4 sm:gap-10 xl:gap-16 h-16 w-full px-4 sm:px-14 items-center`}
+      className={`bg-background text-[#00875f] fixed top-0 z-10 flex justify-end gap-4 sm:gap-10 xl:gap-16 h-16 w-full px-4 sm:px-14 items-center`}
     >
       {/* Language Switch */}
       <div className="relative h-8 flex items-center justify-center cursor-pointer">
