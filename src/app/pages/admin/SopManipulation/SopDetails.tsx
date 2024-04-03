@@ -119,7 +119,7 @@ function SopDetails({ minimized }: AdminDashboardProps) {
 			} items-center h-screen mt-16 right-0 fixed overflow-y-auto transition-all duration-500 ease-in`}
 		>
 			<div className="overflow-x-auto">
-				<table className="table-auto w-full">
+				<table className="table-auto w-full text-textColor">
 					<thead>
 						<tr className="bg-gray-200">
 							<th className="px-4 py-2">ተ.ቁ</th>
@@ -133,7 +133,7 @@ function SopDetails({ minimized }: AdminDashboardProps) {
 					<tbody>
 						{currentStandards.map((standard, index) => (
 							<React.Fragment key={standard.id}>
-								<tr className={index % 2 !== 0 ? "bg-gray-50" : ""}>
+								<tr className={index % 2 !== 0 ? "bg-secondary" : ""}>
 									<td className="border px-4 py-2">{standard.id}</td>
 									<td className="border px-4 py-2">{standard.title}</td>
 									<td className="border px-4 py-2">{standard.time}</td>
