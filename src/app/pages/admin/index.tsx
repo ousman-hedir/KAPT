@@ -7,6 +7,7 @@ import { AdminProps } from "./types";
 import SopManipulation from "./SopManipulation";
 import SopDetails from "./SopManipulation/SopDetails";
 import UserDetails from "./UserDetails/UserDetails";
+import SetUp from "./SetUp";
 
 export default function Admin({ darkMode }: AdminProps) {
 	const [minimized, setMinimized] = useState(false);
@@ -32,8 +33,9 @@ export default function Admin({ darkMode }: AdminProps) {
 						path="users/:userId"
 						element={<UserDetails minimized={minimized} />}
 					/>
+					<Route path="setup" element={<SetUp minimized={minimized} />} />
 					<Route
-						path="sop"
+						path="/setup/sop"
 						element={<SopManipulation minimized={minimized} />}
 					/>
 					<Route

@@ -15,7 +15,7 @@ function AdminNavigation({ onMinimizeToggle }: AdminNavigationProps) {
 		},
 		{
 			icon: <CiSettings size={24} />,
-			text: "Setup",
+			text: "setup",
 			link: "/admin/setup",
 		},
 		{

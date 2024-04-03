@@ -3,12 +3,13 @@ import { NavBar } from "../../../components";
 import { AdminNavigationProps } from "./types";
 import { BiEdit } from "react-icons/bi";
 import { HiHome } from "react-icons/hi";
+import { GiIsland } from "react-icons/gi";
 
 function GFMNavigation({ onMinimizeToggle }: AdminNavigationProps) {
 	const items = [
 		{ icon: <HiHome size={24} />, text: "DashBoard", link: "/gfm" },
 		{
-			icon: <CiUser size={24} />,
+			icon: <GiIsland  size={24} />,
 			text: "Farms",
 			link: "/gfm/farms",
 		},

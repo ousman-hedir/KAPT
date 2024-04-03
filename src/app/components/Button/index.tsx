@@ -10,14 +10,14 @@ const Button: React.FC<ButtonProps> = ({
   icon,
 }) => {
   return (
-    <button
-      className={`flex items-center justify-center gap-1 rounded ${bgColor} ${textColor} ${width} ${padding} transition duration-300 ease-in-out hover:bg-blue-600 hover:shadow-md focus:outline-none`}
-      onClick={onClick}
-    >
-      {children}
-      {icon && <span className="">{icon}</span>}
-    </button>
-  );
+		<button
+			className={`flex items-center justify-center gap-1 rounded ${bgColor} ${textColor} ${width} ${padding} transition duration-300 ease-in-out hover:bg-[#ffbe27] hover:shadow-md focus:outline-none`}
+			onClick={onClick}
+		>
+			{children}
+			{icon && <span className="">{icon}</span>}
+		</button>
+	);
 };
 
 export default Button;
