@@ -5,174 +5,166 @@ import {
 	FaEye,
 	FaPlusCircle,
 } from "react-icons/fa";
-import Modal from "../../../components/Modal";
+import AddUserForm from "./AddUserForm";
 import { AdminDashboardProps } from "../Dashboard/types";
 import { Link } from "react-router-dom";
-import { UserInfo } from "./types";
 
 function Users({ minimized }: AdminDashboardProps) {
 	// User List
-	const [users, setUsers] = useState<UserInfo[]>([
+	const [users, setUsers] = useState([
 		{
 			id: 1,
 			name: "Abebe Kebede",
 			email: "abebe@example.com",
 			role: "Developer",
-			phone: 251911234567,
-			farm: "Asela",
+			phone: "+251911234567",
+			startDate: "2023-01-15",
 		},
 		{
 			id: 2,
 			name: "Meseret Tadesse",
 			email: "meseret@example.com",
 			role: "Designer",
-			phone: 251922345678,
-			farm: "Asela",
+			phone: "+251922345678",
+			startDate: "2023-02-20",
 		},
 		{
 			id: 3,
 			name: "Yohannes Assefa",
 			email: "yohannes@example.com",
 			role: "Manager",
-			phone: 251933456789,
-			farm: "Asela",
+			phone: "+251933456789",
+			startDate: "2023-03-25",
 		},
 		{
 			id: 4,
 			name: "Sara Solomon",
 			email: "sara@example.com",
 			role: "Administrator",
-			phone: 251944567890,
-			farm: "Asela",
+			phone: "+251944567890",
+			startDate: "2023-04-30",
 		},
 		{
 			id: 5,
 			name: "John Doe",
 			email: "john.doe@example.com",
 			role: "Developer",
-			phone: 1234567890,
-			farm: "Asela",
+			phone: "+1234567890",
+			startDate: "2023-05-15",
 		},
 		{
 			id: 6,
 			name: "Jane Smith",
 			email: "jane.smith@example.com",
 			role: "Designer",
-			phone: 987654321,
-			farm: "Asela",
+			phone: "+0987654321",
+			startDate: "2023-06-20",
 		},
 		{
 			id: 7,
 			name: "Michael Johnson",
 			email: "michael.johnson@example.com",
 			role: "Manager",
-			phone: 9876543210,
-			farm: "Asela",
+			phone: "+9876543210",
+			startDate: "2023-07-25",
 		},
 		{
 			id: 8,
 			name: "Emily Williams",
 			email: "emily.williams@example.com",
 			role: "Administrator",
-			phone: 123456789,
-			farm: "Asela",
+			phone: "+0123456789",
+			startDate: "2023-08-30",
 		},
 		{
 			id: 9,
 			name: "Daniel Brown",
 			email: "daniel.brown@example.com",
 			role: "Developer",
-			phone: 5432109876,
-			farm: "Asela",
+			phone: "+5432109876",
+			startDate: "2023-09-15",
 		},
 		{
 			id: 10,
 			name: "Olivia Garcia",
 			email: "olivia.garcia@example.com",
 			role: "Designer",
-			phone: 6789012345,
-			farm: "Asela",
+			phone: "+6789012345",
+			startDate: "2023-10-20",
 		},
 		{
 			id: 11,
 			name: "Matthew Martinez",
 			email: "matthew.martinez@example.com",
 			role: "Manager",
-			phone: 3456789012,
-			farm: "Asela",
+			phone: "+3456789012",
+			startDate: "2023-11-25",
 		},
 		{
 			id: 12,
 			name: "Emma Taylor",
 			email: "emma.taylor@example.com",
 			role: "Administrator",
-			phone: 8901234567,
-			farm: "Asela",
+			phone: "+8901234567",
+			startDate: "2023-12-30",
 		},
 		{
 			id: 13,
 			name: "William Rodriguez",
 			email: "william.rodriguez@example.com",
 			role: "Developer",
-			phone: 9876543210,
-			farm: "Asela",
+			phone: "+9876543210",
+			startDate: "2024-01-15",
 		},
 		{
 			id: 14,
 			name: "Sophia Martinez",
 			email: "sophia.martinez@example.com",
 			role: "Designer",
-			phone: 1234567890,
-			farm: "Asela",
+			phone: "+1234567890",
+			startDate: "2024-02-20",
 		},
 		{
 			id: 15,
 			name: "Liam Brown",
 			email: "liam.brown@example.com",
 			role: "Manager",
-			phone: 987654321,
-			farm: "Asela",
+			phone: "+0987654321",
+			startDate: "2024-03-25",
 		},
 		{
 			id: 16,
 			name: "Isabella Garcia",
 			email: "isabella.garcia@example.com",
 			role: "Administrator",
-			phone: 9876543210,
-			farm: "Asela",
+			phone: "+9876543210",
+			startDate: "2024-04-30",
 		},
 		{
 			id: 17,
 			name: "James Johnson",
 			email: "james.johnson@example.com",
 			role: "Developer",
-			phone: 123456789,
-			farm: "Asela",
+			phone: "+0123456789",
+			startDate: "2024-05-15",
 		},
 	]);
-
+	// user list end
+	const [showForm, setShowForm] = useState(false);
 	const [currentPage, setCurrentPage] = useState(1);
 	const usersPerPage = 10;
-	const totalPages = Math.ceil(users.length / usersPerPage);
-	const [isOpen, setIsOpen] = useState(false);
-
-	const handleOpenModal = () => {
-		setIsOpen(true);
-	};
-
-	const handleCloseModal = () => {
-		setIsOpen(false);
-	};
-
-	const handleFormSubmit = (formData: unknown) => {
-		// Handle form submission, e.g., send data to server
-		console.log("Form submitted with data:", formData);
-	};
 
 	const usersToShow = users.slice(
 		(currentPage - 1) * usersPerPage,
 		currentPage * usersPerPage
 	);
+
+	const handleAddEmployee = (newEmployee) => {
+		setUsers([...users, { id: users.length + 1, ...newEmployee }]);
+		setShowForm(false);
+	};
+
+	const totalPages = Math.ceil(users.length / usersPerPage);
 
 	return (
 		<div
@@ -181,57 +173,21 @@ function Users({ minimized }: AdminDashboardProps) {
 			} items-center h-screen mt-16 right-0 fixed  overflow-y-auto transition-all duration-500 ease-in`}
 		>
 			<h1 className="text-2xl font-bold mb-6">Employee Management</h1>
-			<button
-				onClick={handleOpenModal}
-				className="text-[white] p-2 mb-6 flex bg-[#d7a022] rounded-lg hover:bg-[#3b3bf7]"
-			>
-				Add New Employee
-				<FaPlusCircle size={30} className="ms-1 pt-1" />
-			</button>
-
-			<Modal isOpen={isOpen} onClose={handleCloseModal} minimized={minimized}>
-				<h2 className="text-xl font-semibold mb-4">Add New Employee</h2>
-				<form onSubmit={handleFormSubmit}>
-					<input
-						type="text"
-						name="name"
-						placeholder="First Name"
-						className="w-full border rounded-md p-2 mb-2 outline-none"
-					/>
-					<input
-						type="text"
-						name="name"
-						placeholder="Last Name"
-						className="w-full border rounded-md p-2 mb-2 outline-none"
-					/>
-
-					<input
-						type="phone"
-						name="phone"
-						placeholder="Phone Number"
-						className="w-full border rounded-md p-2 mb-2 outline-none"
-					/>
-					<input
-						type="email"
-						name="email"
-						placeholder="Email"
-						className="w-full border rounded-md p-2 mb-2 outline-none"
-					/>
-					<input
-						type="text"
-						name="farm"
-						placeholder="Working Area"
-						className="w-full border rounded-md p-2 mb-2 outline-none"
-					/>
-					<input
-						type="text"
-						name="roll"
-						placeholder="Working Position"
-						className="w-full border rounded-md p-2 mb-2 outline-none"
-					/>
-				</form>
-			</Modal>
-
+			{!showForm && (
+				<button
+					onClick={() => setShowForm(true)}
+					className="text-[white] p-2 mb-6 flex bg-[#d7a022] rounded-lg hover:bg-[#3b3bf7]"
+				>
+					Add New Employee
+					<FaPlusCircle size={30} className="ms-1 pt-1" />
+				</button>
+			)}
+			{showForm && (
+				<AddUserForm
+					onSubmit={handleAddEmployee}
+					onCancel={() => setShowForm(false)}
+				/>
+			)}
 			<table className="w-full border-collapse border border-gray-300">
 				<thead className="bg-gray-100">
 					<tr>
@@ -264,6 +220,8 @@ function Users({ minimized }: AdminDashboardProps) {
 					))}
 				</tbody>
 			</table>
+
+			{/* page number viewrs buttons  */}
 
 			<div className="flex justify-center mt-6 pb-20">
 				<button
