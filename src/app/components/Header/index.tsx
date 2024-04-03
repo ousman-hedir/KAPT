@@ -10,10 +10,10 @@ function Header({ toggleDarkMode, darkMode }: HeaderProps) {
 
   return (
     <div
-      className={`bg-background text-[#00875f] fixed top-0 z-10 flex justify-end gap-4 sm:gap-10 xl:gap-16 h-16 w-full px-4 sm:px-14 items-center`}
+      className={`bg-background text-primary fixed top-0 z-10 flex justify-end gap-2 sm:gap-10 xl:gap-16 h-16 w-full px-4 sm:px-14 items-center`}
     >
       {/* Language Switch */}
-      <div className="relative h-8 flex items-center justify-center cursor-pointer">
+      <div className="relative h-8 text-[#00875f] flex items-center justify-center cursor-pointer">
         <select className="border outline-none px-3 py-1 rounded cursor-pointer">
           <option value="Eng">ENG</option>
           <option value="AMH">AMH</option>

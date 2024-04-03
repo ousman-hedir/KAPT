@@ -54,7 +54,7 @@ function NavBar({
     >
       {!mobileView && (
         <div
-          className={`hover:bg-[#021610] cursor-pointer py-3 flex items-center justify-center`}
+          className={`hover:bg-secondary rounded-md cursor-pointer py-3 flex items-center justify-center`}
         >
           <h1 className="text-4xl font-bold text-center font-serif tracking-widest">
             APT

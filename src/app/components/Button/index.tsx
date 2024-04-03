@@ -1,8 +1,8 @@
 import { ButtonProps } from "./types";
 
 const Button: React.FC<ButtonProps> = ({
-  bgColor = "bg-blue-500",
-  textColor = "text-white",
+  bgColor = "bg-[#d7a022]",
+  textColor = "text-black",
   width = "w-auto",
   padding = "px-4 py-2",
   onClick,
@@ -11,7 +11,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   return (
     <button
-      className={`flex items-center justify-center gap-1 rounded ${bgColor} ${textColor} ${width} ${padding} transition duration-300 ease-in-out hover:bg-blue-600 hover:shadow-md focus:outline-none`}
+      className={`flex items-center justify-center gap-1 rounded ${bgColor} ${textColor} ${width} ${padding} font-bold transition duration-300 ease-in-out hover:opacity-80 font- hover:shadow-md focus:outline-none`}
       onClick={onClick}
     >
       {children}

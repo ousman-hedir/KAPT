@@ -5,5 +5,4 @@ export interface ModalProps {
   minimized: boolean;
   onClose: () => void;
   children?: ReactNode;
-  button?: ReactNode;
 }

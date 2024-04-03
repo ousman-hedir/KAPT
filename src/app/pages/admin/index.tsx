@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import AdminNavigation from "./Navigation";
 import AdminDashboard from "./Dashboard";
-import Users from "./users";
+import Users from "./Users";
 import { AdminProps } from "./types";
 
 export default function Admin({ darkMode }: AdminProps) {
